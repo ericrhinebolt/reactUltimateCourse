@@ -28,3 +28,13 @@ Vite - Modern build tool that contains a template for setting up React applicati
 React team now advises using a React framework like Next.js or Remix
 
 npx create-react-app@5 pizza-menu - @5 is to create project with version 5 - cd to project folder - npm run start (npm start)
+
+-All React does is take components and drawn them onto UI
+-React renders a view for each component and all views together makes up UI
+-Component is a piece of UI
+-Each component has data, JS logic and appearance.
+-Build complex UIs by building muliple components and combining them
+-Components can be reused, nested inside each other, and pass data between them.
+-Create a component tree to map relations between components
+
+Functions must start with capital letter and have a return (can be null, usually JSX)
