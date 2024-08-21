@@ -1,6 +1,5 @@
 Piece of data = Piece of state
 JavaScript front-end frameworks exist because keeping a user interface in sync with data is really hard and a lot of work.
-JSX is html sent from JS.
 
 React is an extremely popular, declarative, component-based, state-driven JavaScript library for building user interfaces, created by Facebook.
 -Components are the building blocks of user interfaces in React.
@@ -16,8 +15,6 @@ React is an extremely popular, declarative, component-based, state-driven JavaSc
     -React is really good at 2 things:
         -Rendering components on a webpage (UI) based on their current state.
         -Keeping the UI in sync with stat, by re-rendering (reacting) when state changes.
-
-Component is a function that starts with uppercase (App())
 
 State is necessary when we want to update anything on the screen
 
@@ -37,4 +34,20 @@ npx create-react-app@5 pizza-menu - @5 is to create project with version 5 - cd 
 -Components can be reused, nested inside each other, and pass data between them.
 -Create a component tree to map relations between components
 
-Functions must start with capital letter and have a return (can be null, usually JSX)
+Component is a function that starts with uppercase (App())
+Functions(Components) must start with capital letter and have a return (can be null, usually JSX)
+Components contain its own Data, Logic and Appearance
+
+JSK is:
+HTML sent from JS.
+A delecarative syntax to describe what components looks like and how they work (Appearance)
+An Extension of JS that allows us to embed JavaScript, CSS and React components into HTML
+
+Each JSX element is converted to a React.createElement funtion call with BABEL
+Can use React without JSX if you wanted
+
+Imperative vs Declarative
+Imperative (JS) ("How to do things")- Manual DOM element selections and DOM traversing. Step-by-step DOM mutations until we reach the desired UI
+Declarative (React) ("What we want") Describe what UI should look like using JSX, based on current data. React is an abstration away from DOM; we never touch the DOM. Instead, we think of the UI as a reflection of the current data.
+
+Strict mode will cause components to render twice, can see that when using "alert" JS function.
