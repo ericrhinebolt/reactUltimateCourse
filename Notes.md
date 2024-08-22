@@ -46,8 +46,28 @@ An Extension of JS that allows us to embed JavaScript, CSS and React components 
 Each JSX element is converted to a React.createElement funtion call with BABEL
 Can use React without JSX if you wanted
 
+JSX works essentially like HTML, but we can enter JavaScript mod using {}
+We can place JS expressions inside {}. For example, using variables, create arrays or objects, [].map(), ternary operator. Statements are not allowed (if/else, for, switch)
+JSX produces a JS expression.
+We can place other pieces of JSX inside {}
+Can write JSX anywhere inside a component (in if/else, assign to variables, pass to functions)
+A piece of JSX can only have one root element. If you need more, use <React.fragment> (or the short <>)
+
 Imperative vs Declarative
 Imperative (JS) ("How to do things")- Manual DOM element selections and DOM traversing. Step-by-step DOM mutations until we reach the desired UI
 Declarative (React) ("What we want") Describe what UI should look like using JSX, based on current data. React is an abstration away from DOM; we never touch the DOM. Instead, we think of the UI as a reflection of the current data.
 
 Strict mode will cause components to render twice, can see that when using "alert" JS function.
+
+Props:
+Props are used to pass data from parent components to child components (down the component tree)
+Essential tool to configure and customize components (like function parameters)
+With props, parent components control how child components look and work
+Anything can be passed as props: single values, arrays, objects, functions, even other components
+
+Props are read-only. They are immutable. This is one of React's strict rules
+Props is data coming from the outsize, and can only be updated by the parent component
+State is internal data that can be updated by the component's logic
+
+A component should not mutatate any data that we write outsize it's function scope.
+React uses one-way data flow. Easier to understand and debug. More performant.
