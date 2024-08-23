@@ -71,3 +71,9 @@ State is internal data that can be updated by the component's logic
 
 A component should not mutatate any data that we write outsize it's function scope.
 React uses one-way data flow. Easier to understand and debug. More performant.
+
+if you want to use conditional rendering with multiple returns:
+Use a ternary if you want to make the condition within the JSX
+If you want 2 separate returns, you can use if statement outside of JSX, such as returning separate components
+
+detructuring props requires curly braces

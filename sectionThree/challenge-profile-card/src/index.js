@@ -2,6 +2,39 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./styles.css";
 
+const skills = [
+  {
+    skill: "Java",
+    level: "advanced",
+    color: "#37b24d",
+  },
+  {
+    skill: "HTML+CSS",
+    level: "advanced",
+    color: "#1098ad",
+  },
+  {
+    skill: "JavaScript",
+    level: "intermediate",
+    color: "#e8590c",
+  },
+  {
+    skill: "GraphQL",
+    level: "advanced",
+    color: "#e64980",
+  },
+  {
+    skill: "Git and Github",
+    level: "advanced",
+    color: "#be4bdb",
+  },
+  {
+    skill: "React",
+    level: "beginner",
+    color: "#91a7ff",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -35,31 +68,28 @@ function Intro() {
 
 function SkillList() {
   return (
-    <div className="skill-list">
-      <Skill skillName="Java" skillEmoji="&#x1F4AA;" skillColor="#37b24d" />
-      <Skill skillName="HTML+CSS" skillEmoji="&#x1F4AA;" skillColor="#1098ad" />
-      <Skill
-        skillName="JavaScript"
-        skillEmoji="&#x1F44D;"
-        skillColor="#e8590c"
-      />
-      <Skill skillName="GraphQL" skillEmoji="&#x1F4AA;" skillColor="#e64980" />
-      <Skill
-        skillName="Git and Github"
-        skillEmoji="&#x1F4AA;"
-        skillColor="#be4bdb"
-      />
-      <Skill skillName="React" skillEmoji="&#x1F476;" skillColor="#91a7ff" />
-    </div>
+    <ul className="skill-list">
+      {skills.map((skills) => (
+        <Skill skillObj={skills} key={skills.skill} />
+      ))}
+    </ul>
   );
 }
 
-function Skill(props) {
+function Skill({ skillObj }) {
+  const emoji =
+    skillObj.level === "advanced"
+      ? `\u{1F4AA}`
+      : skillObj.level === "intermediate"
+      ? `\u{1F44D}`
+      : skillObj.level === "beginner"
+      ? `\u{1F476}`
+      : null;
   return (
-    <div className="skill" style={{ backgroundColor: props.skillColor }}>
-      <span>{props.skillName}</span>
-      <span>{props.skillEmoji}</span>
-    </div>
+    <li className="skill" style={{ backgroundColor: skillObj.color }}>
+      <span>{skillObj.skill}</span>
+      <span>{emoji}</span>
+    </li>
   );
 }
 
