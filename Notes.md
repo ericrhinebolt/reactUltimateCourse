@@ -77,3 +77,22 @@ Use a ternary if you want to make the condition within the JSX
 If you want 2 separate returns, you can use if statement outside of JSX, such as returning separate components
 
 detructuring props requires curly braces
+
+Props is data from outside a component
+State is data that a component can hold over time, necessary for information that it needs to remember thoughout the app's lifecycle
+"Component's memory"
+"State variable" / "piece of state": a Single variable in a component (component state)
+Updating component state triggers React to re-render the component
+
+All the single "components views" combined create the UI
+
+State allows developers to:
+
+1. update the component's view (by re-rendering it)
+2. Persist local variables between renders
+
+State is a powerful tool in React development.
+
+Hooks (useState, use... etc.) can only be used on main level of components, not nested in functions or conditionally.
+
+Should always use setter method to set state, not manually.
