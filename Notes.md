@@ -72,11 +72,11 @@ State is internal data that can be updated by the component's logic
 A component should not mutatate any data that we write outsize it's function scope.
 React uses one-way data flow. Easier to understand and debug. More performant.
 
-if you want to use conditional rendering with multiple returns:
+If you want to use conditional rendering with multiple returns:
 Use a ternary if you want to make the condition within the JSX
 If you want 2 separate returns, you can use if statement outside of JSX, such as returning separate components
 
-detructuring props requires curly braces
+Detructuring props requires curly braces
 
 Props is data from outside a component
 State is data that a component can hold over time, necessary for information that it needs to remember thoughout the app's lifecycle
@@ -96,3 +96,9 @@ State is a powerful tool in React development.
 Hooks (useState, use... etc.) can only be used on main level of components, not nested in functions or conditionally.
 
 Should always use setter method to set state, not manually.
+
+A component is re-rendered when it's state is updated.
+
+A view is updated by re-rendering the component. React calls the component function again. State is preserved throughout re-renders unless component is unmounted (removed completely from UI)
+
+https://react.dev/learn/react-developer-tools
