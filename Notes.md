@@ -102,3 +102,15 @@ A component is re-rendered when it's state is updated.
 A view is updated by re-rendering the component. React calls the component function again. State is preserved throughout re-renders unless component is unmounted (removed completely from UI)
 
 https://react.dev/learn/react-developer-tools
+
+When updating state based on the current value of the state, good practice is to use a callback funtion: (s) => s + 1
+
+Each component has and manages it's own state, no matter how many times we render the same component.
+
+Practical guidlines about state:
+-Use a state variable for any data that the component should keep track of ("remember") over time. This is data that will change at some point. In Vanilla Js, that's a let variable, or and [] or {}
+-Whenever you want something in the component to be dynamic, create a piece of state related to that "thing", and update the state when the "thing" should change (aka "be dynamic")
+-Example: A modal window can be open or closed. So we create a state variable isOpen that tracks whether the modal is open or not. On isOpen = true we displace the window, on isOpen = false, we hide it. !isOpen to toggle.
+-If you want to change the way a component looks, or the data is displays, update it's state. This usually happens in an event handler function.
+-When building a component, imagine its view as a reflection of state changing over time.
+-For data that should not trigger component re-renders, don't use state. Use a regular variable instead. This is a common begginer mistake.
