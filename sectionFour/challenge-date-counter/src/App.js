@@ -10,27 +10,61 @@ function App() {
 }
 
 function Counter() {
+  const currentDate = new Date();
+  currentDate.setDate(currentDate.getDate() + 1);
   const [step, setStep] = useState(1);
   const [count, setCount] = useState(1);
-  const [days, setDays] = useState(1);
-  const [dayPlural, setDayPlural] = useState("day");
-  const [dayTitle, setDayTitle] = useState("today");
-  const [date, setDate] = useState(new Date().toDateString());
+  const [date, setDateCount] = useState(currentDate.toDateString());
+
+  function handleAddDays() {
+    setCount(() => count + step);
+    const newDate = new Date(date);
+    newDate.setHours(newDate.getHours() + step * 24);
+    setDateCount(() => newDate.toDateString());
+  }
+
+  function handleRemoveDays() {
+    setCount(() => count - step);
+    const newDate = new Date(date);
+    newDate.setHours(newDate.getHours() - step * 24);
+    setDateCount(() => newDate.toDateString());
+  }
+
+  function handleAddSteps() {
+    setStep((s) => s + 1);
+  }
+
+  function handleRemoveSteps() {
+    setStep((s) => s - 1);
+  }
 
   return (
-    <div>
+    <main>
       <div>
-        <button>-</button>Step: {step}
-        <button>+</button>
+        <button onClick={handleRemoveSteps}>-</button>Step: {step}
+        <button onClick={handleAddSteps}>+</button>
       </div>
       <div>
-        <button>-</button>Count: {count}
-        <button>+</button>
+        <button onClick={handleRemoveDays}>-</button>Count: {count}
+        <button onClick={handleAddDays}>+</button>
       </div>
-      <div>
-        {days} {dayPlural} from {dayTitle} is {date}
-      </div>
-    </div>
+      {count === 0 && <div>Today is {date}</div>}
+      {count > 0 && count <= 1 && (
+        <div>
+          {count} day from today is {date}
+        </div>
+      )}
+      {count > 1 && (
+        <div>
+          {count} days from today is {date}
+        </div>
+      )}
+      {count < 1 && count !== 0 && (
+        <div>
+          {count} days from today is {date}
+        </div>
+      )}
+    </main>
   );
 }
 
