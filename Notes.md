@@ -4,7 +4,7 @@ JavaScript front-end frameworks exist because keeping a user interface in sync w
 React is an extremely popular, declarative, component-based, state-driven JavaScript library for building user interfaces, created by Facebook.
 -Components are the building blocks of user interfaces in React.
 -We build complex UIs by building multiple components and combining them.
--Declarative syntax called JSX. Tells React what a component should look like based on current data/state.
+-Declarative syntax called JSX. Tells React what a cogit mponent should look like based on current data/state.
 -React is abstraction away from DOM: we never touch the DOM.
 -JSX: a syntax that combines HTML, CSS, JavaScript as well as referencing other components.
 -State(data) - React reacts to state changes by re-rendering the UI.
@@ -114,3 +114,19 @@ Practical guidlines about state:
 -If you want to change the way a component looks, or the data is displays, update it's state. This usually happens in an event handler function.
 -When building a component, imagine its view as a reflection of state changing over time.
 -For data that should not trigger component re-renders, don't use state. Use a regular variable instead. This is a common begginer mistake.
+
+State vs. Props
+
+State:
+Internal data, owned by component
+Component "memory"
+Can be updated by the component itself
+Updating state causes component to re-render
+Used to make components interactive
+
+Props:
+External data, owned by parent component
+Similar to function parameters
+Read-only
+Receiving new props causes component to re-render
+Usually when the parent's state has been updated
