@@ -130,3 +130,26 @@ Similar to function parameters
 Read-only
 Receiving new props causes component to re-render
 Usually when the parent's state has been updated
+
+"Thinking in React" as a process
+
+1. Break the desired UI into components and establish the component tree
+2. Build a static version in React(without state)
+3. Think about state-
+   When to use state
+   Types of state: local vs. global
+   Where to place each piece of state
+4. Establish data flow
+   One-way data flow
+   Child-to-parent communication
+   Accessing global state
+
+State Management: Deciding when to create pieces of state, what types of state are necessary, where to place each piece of state, and how data flows through the app - Giving each piece of state a home
+
+Types of State: Local vs Global
+Local State:
+State needed only by one or few components
+State that is defined in a component and only that component and child components have access to it (by passing via props)
+Global State:
+State that many different components might need
+Shared state that is accessible to every component in the entire application
