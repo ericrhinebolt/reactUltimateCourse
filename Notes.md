@@ -153,3 +153,29 @@ State that is defined in a component and only that component and child component
 Global State:
 State that many different components might need
 Shared state that is accessible to every component in the entire application
+
+Lifting up state:
+Sharing state with a sibling component
+Create state in a the nearest common parent component, create a handler function. Pass the handler function via props to the component that needs to update the state. Pass the state via props to the component that needs to display the state.
+
+State example:
+const [items, setItems] = useState([]);
+
+Handler function example:
+function handleAddItems(item) {
+setItems((items) => [...items, item]);
+}
+
+Props example:
+
+<Form onAddItems={handleAddItems} />
+<PackingList items={items} />
+
+Component example:
+function Form({ onAddItems }) {
+onAddItems(newItem);
+}
+
+Deriving state:
+State that is computed from an existing piece of state or from props
+For example, if there is a cart with 3 items, you would not have a numItems state. You would use a const variable with cart.length to get the array length. This would be there sincle source of truth. Works because re-rendering component will automatically re-calculate derived state.
