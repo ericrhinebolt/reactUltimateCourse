@@ -179,3 +179,9 @@ onAddItems(newItem);
 Deriving state:
 State that is computed from an existing piece of state or from props
 For example, if there is a cart with 3 items, you would not have a numItems state. You would use a const variable with cart.length to get the array length. This would be there sincle source of truth. Works because re-rendering component will automatically re-calculate derived state.
+
+Children Props:
+Instead of self closing a Component call, you can insert JSX and pass it to the component with {children} props
+The children prop allow us to pass JSX into an element (besides regular props)
+Essential tool to make reusable and configurable components (especially ocmponent content)
+Really useful for generic components that don't know their content before being used (e.g. modal)
