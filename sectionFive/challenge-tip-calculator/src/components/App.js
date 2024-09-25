@@ -1,16 +1,20 @@
 import { useState } from "react";
+import { Reset } from "./Reset";
+import { Total } from "./Total";
+import { PercentTip } from "./PercentTip";
+import { Bill } from "./Bill";
 
-const tips = [
-  { key: "0", value: "Dissatisfied (0%)" },
-  { key: "1", value: "It was okay (5%)" },
-  { key: "2", value: "It was good (10%)" },
-  { key: "3", value: "Absolutely amazing! (20%)" },
+export const tips = [
+  { tip: 0, value: "Dissatisfied (0%)" },
+  { tip: 5, value: "It was okay (5%)" },
+  { tip: 10, value: "It was good (10%)" },
+  { tip: 20, value: "Absolutely amazing! (20%)" },
 ];
 
 export default function App() {
-  const [total, setTotal] = useState("");
-  const [mainTip, setMainTip] = useState(tips[0].value);
-  const [friendTip, setFriendTip] = useState(tips[0].value);
+  const [total, setTotal] = useState(0);
+  const [mainTip, setMainTip] = useState(0);
+  const [friendTip, setFriendTip] = useState(0);
   return (
     <div>
       <Bill total={total} onTotal={setTotal}>
@@ -22,48 +26,14 @@ export default function App() {
       <PercentTip tip={friendTip} onTip={setFriendTip}>
         How did your friend like the service?
       </PercentTip>
-      <Total></Total>
-      <Reset />
-    </div>
-  );
-}
-
-function Bill({ total, onTotal, children }) {
-  function handleTotal(e) {
-    onTotal(Number(e.target.value));
-  }
-
-  return (
-    <div>
-      <span>{children}</span>
-      <input
-        type="number"
-        placeholder="Total..."
-        value={total === 0 ? "" : total}
-        onChange={(e) => handleTotal(e)}
+      <Total total={total} tip1={mainTip} tip2={friendTip}>
+        You pay
+      </Total>
+      <Reset
+        onTotal={setTotal}
+        onMainTip={setMainTip}
+        onFriendTip={setFriendTip}
       />
     </div>
   );
 }
-
-function PercentTip({ onTip, children }) {
-  function handleTip(e) {
-    console.log(e);
-    onTip(e.target.value);
-  }
-
-  return (
-    <div>
-      <span>{children}</span>
-      <select onChange={(el) => handleTip(el)}>
-        {tips.map((tip, i) => (
-          <option value={tip.value}>{tip.value}</option>
-        ))}
-      </select>
-    </div>
-  );
-}
-
-function Total() {}
-
-function Reset() {}
